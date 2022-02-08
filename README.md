@@ -4,4 +4,5 @@ Fine tuned classifier to classify Yelp reviews
 - Example of one of my favourite things: transfer learning!
 - Uses PyTorch
 
-https://tenor.com/view/fire-world-explode-gif-16051987
+
+![fire-world](https://user-images.githubusercontent.com/56002246/153087581-a9b0791f-1d40-4b08-b6b3-0f8ccac5b127.gif)
