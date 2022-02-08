@@ -1,5 +1,5 @@
 # BERT_Fine_Tuned_Classifier
-Fine tuned classifier to identify seniority levels in job adverts
+Fine tuned classifier to classify Yelp reviews
 
 # Example of transfer learning
 
