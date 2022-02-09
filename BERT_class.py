@@ -20,9 +20,12 @@ class BERT_Fine(nn.Module):
     def __init__(self, model):     
       super(BERT_Fine, self).__init__()
       self.model = model
+      self.input_l = 768
+      self.hidden_l = 512 
+      self.output_l = 2
       self.relu =  nn.ReLU()
-      self.fc1 = nn.Linear(768,512)
-      self.fc2 = nn.Linear(512,2)
+      self.fc1 = nn.Linear(self.input_l, self.hidden_l)
+      self.fc2 = nn.Linear(self.hidden_l, self.output_l)
       self.softmax = nn.LogSoftmax(dim=1)
 
     def forward(self, sent_id, mask):
