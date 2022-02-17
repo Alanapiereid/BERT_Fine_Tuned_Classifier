@@ -10,13 +10,12 @@ import transformers
 from transformers import AutoModel, BertTokenizerFast
 from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
 
-device = torch.device("cuda")
+# device = torch.device("cuda")
 
-model = AutoModel.from_pretrained('bert-base-uncased')
+# model = AutoModel.from_pretrained('bert-base-uncased')
 
 
 class BERT_Fine(nn.Module):
-
     def __init__(self, model):     
       super(BERT_Fine, self).__init__()
       self.model = model
@@ -29,8 +28,10 @@ class BERT_Fine(nn.Module):
       self.softmax = nn.LogSoftmax(dim=1)
 
     def forward(self, sent_id, mask):
-      _, cls_hs = self.bert(sent_id, attention_mask=mask)
-      x = self.fc1(cls_hs)
+      _, cls = self.model(sent_id, attention_mask=mask, return_dict=False)
+      x = self.fc1(cls)
       x = self.relu(x)
       x = self.fc2(x)
       x = self.softmax(x)
+      return x
+    
